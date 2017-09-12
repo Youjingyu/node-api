@@ -5,7 +5,9 @@ var request = require('superagent')
 var superagent = require('superagent-charset')(request)
 var mongoose = require('mongoose')
 var Good = require('../models/goods')
-mongoose.connect('mongodb://127.0.0.1:27017/mymall')
+mongoose.connect('mongodb://127.0.0.1:27017/mymall', {
+    useMongoClient: true
+})
 let ep = new eventproxy();
 let baseUrl = 'http://www.smartisan.com';
 function getGoods() {
